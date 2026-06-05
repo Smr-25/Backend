@@ -1,0 +1,44 @@
+# Local secrets and platform-specific settings
+appsettings.Mac.json
+.env
+.env.*
+
+# .NET build output
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+publish/
+*.nupkg
+*.snupkg
+
+# IDE and editor state
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.rsuser
+*.sln.docstates
+*.DotSettings.user
+*.iml
+
+# Frontend dependency and build output
+node_modules/
+dist/
+
+# Logs, generated databases, and backups
+*.log
+*.mdf
+*.ndf
+*.ldf
+*.bak
+*.bacpac
+
+# Runtime uploads (existing tracked examples are retained)
+**/wwwroot/uploads/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
