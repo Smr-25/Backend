@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daxil ol - Restoran</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<nav class="top-nav">
+  <a href="index.html" class="back-link">← Ana Səhifəyə Qayıt</a>
+</nav>
+
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo">🍽️</div>
+      <h1>Xoş Gəlmisiniz</h1>
+      <p>Restoran panelinə daxil olun</p>
+    </div>
+
+    <form id="loginForm" class="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@example.com"
+                required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="password">Şifrə</label>
+        <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••"
+                required
+        >
+      </div>
+
+      <div class="form-options">
+        <label class="checkbox-label">
+          <input type="checkbox" id="remember">
+          <span>Məni xatırla</span>
+        </label>
+        <a href="#" class="forgot-password">Şifrəni unutmusunuz?</a>
+      </div>
+
+      <button type="submit" class="login-btn">
+        <span class="btn-text">Daxil ol</span>
+        <span class="btn-loader" style="display: none;">⏳</span>
+      </button>
+
+      <div class="error-message" id="errorMessage" style="display: none;">
+        <!-- Error mesajı burda göstəriləcək -->
+      </div>
+    </form>
+
+    <div class="login-footer">
+      <p>Hesabınız yoxdur? <a href="#">Qeydiyyat</a></p>
+    </div>
+  </div>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kateqoriya Yarat - Restoran</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #764ba2;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .form-header .icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .form-header h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .form-body {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 2px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 2px solid #f5c6cb;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar">
+    <a href="index.html" class="navbar-brand">
+        <span>🍽️</span>
+        <span>Restoran Menyusu</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="index.html">Ana Səhifə</a></li>
+        <li><a href="createcategory.html" class="active">Kateqoriya Yarat</a></li>
+        <li><a href="login.html">Daxil ol</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="form-card">
+        <div class="form-header">
+            <div class="icon">📁</div>
+            <h1>Yeni Kateqoriya</h1>
+            <p>Menyu üçün yeni kateqoriya əlavə edin</p>
+        </div>
+
+        <div class="form-body">
+            <form id="createCategoryForm" method="POST">
+                <div class="form-group">
+                    <label for="categoryName">Kateqoriya Adı</label>
+                    <input type="text" id="categoryName" name="name" placeholder="Məsələn: Şirniyyatlar, İçkilər..." required>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    ✨ Kateqoriya Yarat
+                </button>
+
+                <div id="message" class="message"></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("createCategoryForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const categoryName = document.getElementById("categoryName").value;
+        const token = localStorage.getItem("authToken");
+        const messageDiv = document.getElementById("message");
+
+        // Show loading state
+        const submitBtn = event.target.querySelector('button[type="submit"]');
+        submitBtn.textContent = "⏳ Yaradılır...";
+        submitBtn.disabled = true;
+
+        fetch("http://localhost:5000/api/Categories", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({name: categoryName})
+        }).then(response => {
+            if (response.ok) {
+                messageDiv.className = "message success";
+                messageDiv.textContent = "✅ Kateqoriya uğurla yaradıldı!";
+                messageDiv.style.display = "block";
+                document.getElementById("createCategoryForm").reset();
+
+                // Redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 2000);
+            } else {
+                messageDiv.className = "message error";
+                messageDiv.textContent = "❌ Kateqoriya yaradılarkən xəta baş verdi.";
+                messageDiv.style.display = "block";
+            }
+        }).catch(error => {
+            console.error("Error:", error);
+            messageDiv.className = "message error";
+            messageDiv.textContent = "❌ Əlaqə xətası. Yenidən cəhd edin.";
+            messageDiv.style.display = "block";
+        }).finally(() => {
+            submitBtn.textContent = "✨ Kateqoriya Yarat";
+            submitBtn.disabled = false;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WithMessageBroker", "WithMessageBroker", "{D72CF2FE-5C7C-478A-B600-A312C0E58A87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WithoutMessageBroker", "WithoutMessageBroker", "{66F97F37-8644-452E-8260-A7FE95EEAA6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithMessageBroker.Consumer", "WithMessageBroker\WithMessageBroker.Consumer\WithMessageBroker.Consumer.csproj", "{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithMessageBroker.Producer", "WithMessageBroker\WithMessageBroker.Producer\WithMessageBroker.Producer.csproj", "{896E72F6-4FAB-439F-91B9-E4A4E6834B13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WithoutMessageBroker", "WithoutMessageBroker\WithoutMessageBroker.csproj", "{61B5B7AE-26C9-4335-86A3-DB6A7277E21A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC} = {D72CF2FE-5C7C-478A-B600-A312C0E58A87}
+		{896E72F6-4FAB-439F-91B9-E4A4E6834B13} = {D72CF2FE-5C7C-478A-B600-A312C0E58A87}
+		{61B5B7AE-26C9-4335-86A3-DB6A7277E21A} = {66F97F37-8644-452E-8260-A7FE95EEAA6D}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A19EC0F-7CCF-4ADD-8CEF-542067B42AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896E72F6-4FAB-439F-91B9-E4A4E6834B13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{896E72F6-4FAB-439F-91B9-E4A4E6834B13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{896E72F6-4FAB-439F-91B9-E4A4E6834B13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{896E72F6-4FAB-439F-91B9-E4A4E6834B13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B5B7AE-26C9-4335-86A3-DB6A7277E21A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B5B7AE-26C9-4335-86A3-DB6A7277E21A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B5B7AE-26C9-4335-86A3-DB6A7277E21A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B5B7AE-26C9-4335-86A3-DB6A7277E21A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

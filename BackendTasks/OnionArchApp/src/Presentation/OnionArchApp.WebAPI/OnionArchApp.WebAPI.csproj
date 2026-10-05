@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AppSettingsMultiPlatformPackage" Version="1.2.1" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.1" />
+        <PackageReference Include="Scalar.AspNetCore" Version="2.11.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Infrastructure\OnionArchApp.Infrastructure\OnionArchApp.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Infrastructure\OnionArchApp.Persistance\OnionArchApp.Persistance.csproj" />
+    </ItemGroup>
+
+</Project>

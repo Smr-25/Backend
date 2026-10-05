@@ -1,0 +1,14 @@
+@model List<Madel>
+@{
+    ViewData["Title"] = "Madel Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <ul>
+        @foreach (var madel in Model)
+        {
+            <li><a asp-controller="Car" asp-action="Index" asp-route-madelId="@madel.Id">@madel.Name</a></li>
+        }
+    </ul>
+</div>

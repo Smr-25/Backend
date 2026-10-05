@@ -1,0 +1,112 @@
+@model List<CategoryReturnDto>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Categories</h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Create New Category
+        </a>
+    </div>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-info">
+            <p class="mb-0">No categories found. <a asp-action="Create">Create your first category</a></p>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var category in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        @if (!string.IsNullOrEmpty(category.ImageUrl))
+                        {
+                            <img src="@category.ImageUrl" class="card-img-top" alt="@category.Name" style="height: 200px; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 200px;">
+                                <i class="bi bi-image text-white" style="font-size: 3rem;"></i>
+                            </div>
+                        }
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@category.Name</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                @(string.IsNullOrEmpty(category.Description) ? "No description available" : category.Description)
+                            </p>
+                            <div class="mb-2">
+                                <small class="text-muted">
+                                    <i class="bi bi-box-seam"></i> @category.ProductsCount Product@(category.ProductsCount != 1 ? "s" : "")
+                                </small>
+                            </div>
+                            <div class="mb-2">
+                                <small class="text-muted">
+                                    <i class="bi bi-calendar"></i> Created: @category.CreatedDate.ToString("MMM dd, yyyy")
+                                </small>
+                            </div>
+                            @if (category.UpdateDate.HasValue)
+                            {
+                                <div class="mb-3">
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar-check"></i> Updated: @category.UpdateDate.Value.ToString("MMM dd, yyyy")
+                                    </small>
+                                </div>
+                            }
+                            <div class="btn-group mt-auto" role="group">
+                                <a asp-action="Details" asp-route-id="@category.Id" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-eye"></i> Details
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@category.Id" class="btn btn-sm btn-outline-warning">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@category.Id" class="btn btn-sm btn-outline-danger">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <!-- Summary Section -->
+        <div class="card mt-4 bg-light">
+            <div class="card-body">
+                <h5 class="card-title">Summary</h5>
+                <div class="row">
+                    <div class="col-md-4">
+                        <p><strong>Total Categories:</strong> @Model.Count</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Total Products:</strong> @Model.Sum(c => c.ProductsCount)</p>
+                    </div>
+                    <div class="col-md-4">
+                        <p><strong>Average Products per Category:</strong> @(Model.Count > 0 ? Math.Round((double)Model.Sum(c => c.ProductsCount) / Model.Count, 2) : 0)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

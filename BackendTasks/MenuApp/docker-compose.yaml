@@ -1,0 +1,7 @@
+﻿services:
+  menuapp:
+    image: menuapp
+    build:
+      context: .
+      dockerfile: MenuApp/Dockerfile
+

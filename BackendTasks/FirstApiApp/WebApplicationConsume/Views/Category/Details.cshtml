@@ -1,0 +1,164 @@
+@model CategoryReturnDto
+
+@{
+    ViewData["Title"] = "Category Details";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Category Details</h2>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                <i class="bi bi-pencil"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to List
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Category Information Card -->
+        <div class="col-lg-8">
+            <div class="card shadow-sm mb-4">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name" style="max-height: 400px; object-fit: cover;">
+                }
+                else
+                {
+                    <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 300px;">
+                        <i class="bi bi-image text-white" style="font-size: 5rem;"></i>
+                    </div>
+                }
+                <div class="card-body">
+                    <h3 class="card-title mb-3">@Model.Name</h3>
+                    
+                    <div class="mb-3">
+                        <h5 class="text-muted">Description</h5>
+                        <p class="card-text">
+                            @(string.IsNullOrEmpty(Model.Description) ? "No description available" : Model.Description)
+                        </p>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <h6 class="text-muted">
+                                <i class="bi bi-calendar-plus"></i> Created Date
+                            </h6>
+                            <p>@Model.CreatedDate.ToString("MMMM dd, yyyy 'at' hh:mm tt")</p>
+                        </div>
+                        @if (Model.UpdateDate.HasValue)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <h6 class="text-muted">
+                                    <i class="bi bi-calendar-check"></i> Last Updated
+                                </h6>
+                                <p>@Model.UpdateDate.Value.ToString("MMMM dd, yyyy 'at' hh:mm tt")</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Card -->
+        <div class="col-lg-4">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="bi bi-bar-chart"></i> Statistics
+                    </h5>
+                    <div class="mb-3">
+                        <h6 class="text-muted">Total Products</h6>
+                        <h3 class="text-primary">@Model.ProductsCount</h3>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="text-muted">Category ID</h6>
+                        <p class="mb-0">#@Model.Id</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Card -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="bi bi-lightning"></i> Quick Actions
+                    </h5>
+                    <div class="d-grid gap-2">
+                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i> Edit Category
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Delete Category
+                        </a>
+                        <a href="#" class="btn btn-success">
+                            <i class="bi bi-plus-circle"></i> Add Product
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products in Category -->
+    @if (Model.Products != null && Model.Products.Any())
+    {
+        <div class="card shadow-sm mt-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-box-seam"></i> Products in this Category (@Model.Products.Count)
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model.Products)
+                            {
+                                <tr>
+                                    <td>#@product.Id</td>
+                                    <td>@product.Name</td>
+                                    <td>
+                                        <span class="badge bg-success">$@product.Price.ToString("N2")</span>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i> View
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-warning">
+                                            <i class="bi bi-pencil"></i> Edit
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="card shadow-sm mt-4">
+            <div class="card-body text-center">
+                <i class="bi bi-inbox text-muted" style="font-size: 3rem;"></i>
+                <p class="mt-3 text-muted">No products in this category yet.</p>
+                <a href="#" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> Add First Product
+                </a>
+            </div>
+        </div>
+    }
+</div>

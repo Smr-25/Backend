@@ -1,0 +1,14 @@
+﻿@model List<Marka>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <ul>
+        @foreach (var marka in Model)
+        {
+            <li><a asp-controller="Madel" asp-action="Index" asp-route-markaId="@marka.Id">@marka.Name</a></li>
+        }
+    </ul>
+</div>
