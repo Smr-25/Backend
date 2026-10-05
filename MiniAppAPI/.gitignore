@@ -1,0 +1,41 @@
+appsettings.Mac.json
+Dockerfile
+.dockerignore
+compose.yaml
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.rsuser
+
+# Visual Studio
+.vs/
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# NuGet packages
+*.nupkg
+*.snupkg
+
+# Build results
+*.dll
+*.exe
+*.pdb
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Publish folder
+publish/
