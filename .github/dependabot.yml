@@ -1,0 +1,25 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: nuget
+    directories:
+      - /tests/WebApplicationConsume.SecurityTests
+      - "/Homework/EternaApp/EternaApp"
+      - "/Homework/FirstApiApp/FirstApiApp"
+      - "/Homework/MentorApp/MentorApp"
+      - "/Homework/MenuApp/MenuApp"
+      - "/Homework/MessageBrokersMQ/WithMessageBroker/WithMessageBroker.Consumer"
+      - "/Homework/MessageBrokersMQ/WithMessageBroker/WithMessageBroker.Producer"
+      - "/Homework/OnionArchApp/src/Core/OnionArchApp.Application"
+      - "/Homework/OnionArchApp/src/Infrastructure/OnionArchApp.Infrastructure"
+      - "/Homework/OnionArchApp/src/Infrastructure/OnionArchApp.Persistance"
+      - "/Homework/OnionArchApp/src/Presentation/OnionArchApp.WebAPI"
+      - "/Homework/PustokApp/PustokApp"
+      - "/Homework/RazorPagesApp/RazorPagesApp"
+      - "/Labs/MiniAppAPI/MiniAppApi"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5

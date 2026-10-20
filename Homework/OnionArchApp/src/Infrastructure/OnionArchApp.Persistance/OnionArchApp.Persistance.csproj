@@ -11,7 +11,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13" />
     </ItemGroup>
 
+  <!-- Pin patched transitive dependencies until their parent packages advance. -->
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="9.0.21" />
+  </ItemGroup>
 </Project>

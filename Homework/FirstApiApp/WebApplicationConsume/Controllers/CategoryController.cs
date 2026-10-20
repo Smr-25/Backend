@@ -107,6 +107,7 @@ public class CategoryController(IHttpClientFactory httpClientFactory) : Controll
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CategoryCreateViewModel model)
     {
         if (!ModelState.IsValid)
@@ -122,10 +123,10 @@ public class CategoryController(IHttpClientFactory httpClientFactory) : Controll
             using var formData = new MultipartFormDataContent();
 
             // Add Name
-            formData.Add(new StringContent(model.Name), "Name");
+            formData.Add(new StringContent(model.Name, System.Text.Encoding.UTF8, "text/plain"), "Name");
 
             // Add Description
-            formData.Add(new StringContent(model.Description), "Description");
+            formData.Add(new StringContent(model.Description, System.Text.Encoding.UTF8, "text/plain"), "Description");
 
             // Add File
             if (model.File != null && model.File.Length > 0)

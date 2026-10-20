@@ -8,8 +8,8 @@
 
     <ItemGroup>
         <PackageReference Include="AppSettingsMultiPlatformPackage" Version="1.2.1" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.13"/>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
         <PackageReference Include="Scalar.AspNetCore" Version="2.11.10" />
     </ItemGroup>
 
@@ -18,4 +18,9 @@
       <ProjectReference Include="..\..\Infrastructure\OnionArchApp.Persistance\OnionArchApp.Persistance.csproj" />
     </ItemGroup>
 
+  <!-- Pin patched transitive dependencies until their parent packages advance. -->
+  <ItemGroup>
+    <PackageReference Include="NuGet.Packaging" Version="6.12.5" />
+    <PackageReference Include="NuGet.Protocol" Version="6.12.5" />
+  </ItemGroup>
 </Project>

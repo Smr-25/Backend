@@ -7,11 +7,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MailKit" Version="4.14.1"/>
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.1">
+        <PackageReference Include="MailKit" Version="4.16.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.13"/>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="10.0.13"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.13"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.13">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -85,4 +85,8 @@
         <_ContentIncludedByDefault Remove="wwwroot\lib\jquery\LICENSE.txt"/>
     </ItemGroup>
 
+  <!-- Pin patched transitive dependencies until their parent packages advance. -->
+  <ItemGroup>
+    <PackageReference Include="System.Security.Cryptography.Pkcs" Version="10.0.13" />
+  </ItemGroup>
 </Project>

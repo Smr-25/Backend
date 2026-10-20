@@ -91,6 +91,7 @@ public class ProductController(IHttpClientFactory httpClientFactory) : Controlle
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(ProductCreateViewModel model)
     {
         if (!ModelState.IsValid)

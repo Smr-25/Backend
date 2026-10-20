@@ -14,6 +14,7 @@ public class UiAccountController(IHttpClientFactory httpClientFactory) : Control
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
         if (!ModelState.IsValid)
@@ -60,6 +61,7 @@ public class UiAccountController(IHttpClientFactory httpClientFactory) : Control
     }
 
     [HttpPost]
+    [ValidateAntiForgeryToken]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (!ModelState.IsValid)
