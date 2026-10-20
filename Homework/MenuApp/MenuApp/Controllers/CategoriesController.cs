@@ -46,6 +46,7 @@ public class CategoriesController(AppDbContext dbContext,ILogger<CategoriesContr
     }
 
     [HttpPost]
+    [Authorize]
     public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDto category)
     {
         var newCategory = new Models.Category
