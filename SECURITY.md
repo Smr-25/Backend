@@ -5,9 +5,10 @@ Zəiflik tapsanız, lütfən public issue açmayın. Bu repo-nun "Security" böl
 
 ## Security maintenance (2026-10-20)
 
-Unused legacy Chart.js, DataTables and Bootstrap 4 assets under
+Unused legacy Chart.js, DataTables and Bootstrap 4 JavaScript assets under
 `Homework/PustokApp/PustokApp/wwwroot/admin/vendor` were removed. No application
-views or scripts referenced these folders; the active `wwwroot/lib` assets remain.
+views or scripts referenced these JavaScript assets; the active `wwwroot/lib` assets remain.
+Bootstrap Sass sources are retained because the admin theme imports them.
 This removes the vulnerable code itself without excluding it from a scanner.
 Direct and transitive NuGet packages are audited on pushes, pull requests and weekly.
 

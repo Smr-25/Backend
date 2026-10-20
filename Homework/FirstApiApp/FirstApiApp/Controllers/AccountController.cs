@@ -68,6 +68,6 @@ public class AccountController(
         if (user == null)
             return NotFound();
 
-        return Ok(new { user.Id, user.UserName, user.Email, user.EmailConfirmed });
+        return Ok(new { user.Id, user.UserName, user.FullName, user.Email, user.EmailConfirmed });
     }
 }
